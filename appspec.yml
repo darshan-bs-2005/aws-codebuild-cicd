@@ -6,6 +6,7 @@ hooks:
     - location: stop_container.sh
       timeout: 300
       runas: root
+
   AfterInstall:
     - location: start_container.sh
       timeout: 300
