@@ -1,5 +1,5 @@
 version: 0.2
-
+  
 env:
   parameter-store:
     DOCKER_REGISTRY_USERNAME: /docker-credentials/username
@@ -10,13 +10,11 @@ phases:
   install:
     runtime-versions:
       python: 3.11
+   
+  pre_build:
     commands:
       - echo "Installing dependencies..."
       - pip install -r requirements.txt
-
-  pre_build:
-    commands:
-      - echo "Pre-build phase complete."
 
   build:
     commands:
@@ -29,3 +27,4 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully!"
+   
