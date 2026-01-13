@@ -85,6 +85,6 @@ def game():
     return render_template_string(html_page, pos=player_position, dice=dice, msg=msg)
 
 OBOBOBif __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
 
 
