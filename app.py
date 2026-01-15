@@ -78,13 +78,16 @@ def game():
                 msg = f"Yay! Ladder up to {ladders[player_position]}."
                 player_position = ladders[player_position]
 
-OBOBOB            if player_position == 100:
-                msg = "🎉 You won the game! Restarting..."
+            if player_position == 100:
+                msg = " You won the game! Restarting..."
                 player_position = 0
-OBOBOB
-    return render_template_string(html_page, pos=player_position, dice=dice, msg=msg)
 
-OBOBOBif __name__ == '__main__':
-    app.run(debug=True) 
+    return render_template_string(
+        html_page,
+        pos=player_position,
+        dice=dice,
+        msg=msg
+    )
 
-  
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000)
