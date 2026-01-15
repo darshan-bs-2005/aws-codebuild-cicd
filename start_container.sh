@@ -1,8 +1,18 @@
 #!/bin/bash
 set -e
 
-# Pull the Docker image from Docker Hub
-docker pull darshanbs2005/python-flask-app
+IMAGE="darshanbs2005/python-flask-app"
+CONTAINER_NAME="flask-app"
 
-# Run the Docker image as a container
-docker run -d -p 5000:5000 darshanbs2005/python-flask-app
+# Stop and remove old container (if exists)
+docker rm -f $CONTAINER_NAME || true
+
+# Pull latest image
+docker pull $IMAGE
+
+# Run new container
+docker run -d \
+  --name $CONTAINER_NAME \
+  -p 5000:5000 \
+  --restart always \
+  $IMAGE
