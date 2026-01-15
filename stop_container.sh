@@ -1,4 +1,10 @@
 #!/bin/bash
 set -e
 
-docker stop $(docker ps -q) || true
+CONTAINERS=$(docker ps -q)
+
+if [ -n "$CONTAINERS" ]; then
+  docker stop $CONTAINERS
+else
+  echo "No running containers to stop"
+fi
